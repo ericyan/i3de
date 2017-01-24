@@ -103,7 +103,7 @@ client.background       $basebg
 
 bar {
   position top
-  status_command i3status
+  status_command i3blocks
   tray_output primary
 
   # See http://i3wm.org/docs/userguide.html#_colors for details
