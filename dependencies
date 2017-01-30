@@ -1,0 +1,9 @@
+xorg
+i3-wm
+i3blocks
+xfce4-terminal
+
+# Fonts
+fonts-hack-ttf
+fonts-lato
+fonts-font-awesome
