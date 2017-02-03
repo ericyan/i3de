@@ -40,10 +40,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Move the focused window around
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
 
 # Change container layout
 bindsym $mod+e layout stacking
@@ -61,10 +61,10 @@ bindsym $mod+f fullscreen toggle
 floating_modifier $mod
 
 # Change focus between tiling/floating windows
-bindsym $mod+Space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # Toggle floating mode
-bindsym $mod+Shift+Space floating toggle
+bindsym $mod+shift+space floating toggle
 
 # Switch to workspace
 bindsym $mod+1 workspace 1
@@ -79,16 +79,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+shift+1 move container to workspace 1
+bindsym $mod+shift+2 move container to workspace 2
+bindsym $mod+shift+3 move container to workspace 3
+bindsym $mod+shift+4 move container to workspace 4
+bindsym $mod+shift+5 move container to workspace 5
+bindsym $mod+shift+6 move container to workspace 6
+bindsym $mod+shift+7 move container to workspace 7
+bindsym $mod+shift+8 move container to workspace 8
+bindsym $mod+shift+9 move container to workspace 9
+bindsym $mod+shift+0 move container to workspace 10
 
 # Fire up a terminal
 bindsym $mod+Return exec i3-sensible-terminal
