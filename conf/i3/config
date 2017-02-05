@@ -93,6 +93,9 @@ bindsym $mod+shift+0 move container to workspace 10
 # Fire up a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# App launcher powered by Rofi
+bindsym $alt+space exec rofi -modi drun -show drun -display-drun "Run"
+
 # See http://i3wm.org/docs/userguide.html#_changing_colors for details
 client.focused          $base02 $base02 $base05 $base01 $base02
 client.focused_inactive $base01 $base01 $base03 $base00 $base01
