@@ -1,0 +1,14 @@
+rofi.width:           50
+rofi.lines:           10
+rofi.bw:              4
+rofi.padding:         8
+rofi.line-margin:     0
+rofi.line-padding:    4
+rofi.separator-style: solid
+rofi.hide-scrollbar:  true
+
+rofi.font:         Hack 11
+rofi.color-window: #343d46, #4f5b66, #4f5b66
+rofi.color-normal: #343d46, #a7adba, #343d46, #4f5b66, #a7adba
+rofi.color-active: #343d46, #96b5b4, #343d46, #4f5b66, #96b5b4
+rofi.color-urgent: #343d46, #ebcb8b, #343d46, #4f5b66, #ebcb8b
