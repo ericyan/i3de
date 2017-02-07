@@ -3,6 +3,8 @@ i3-wm
 i3blocks
 rofi
 xfce4-terminal
+chromium
+thunar
 
 # Fonts
 fonts-hack-ttf
