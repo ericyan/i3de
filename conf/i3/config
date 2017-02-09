@@ -96,6 +96,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # App launcher powered by Rofi
 bindsym $alt+space exec rofi -modi drun -show drun -display-drun "Run"
 
+# Lock screen
+bindsym $mod+shift+F12 exec ~/.local/bin/lock
+
 # Set wallpaper
 exec --no-startup-id feh --bg-fill ~/.local/share/images/wallpaper.png
 
