@@ -9,6 +9,8 @@ rofi
 xfce4-terminal
 chromium
 thunar
+xfce4-notifyd
+libnotify-bin
 
 # Fonts
 fonts-hack-ttf
