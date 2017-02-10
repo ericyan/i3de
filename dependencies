@@ -3,6 +3,8 @@ i3-wm
 i3blocks
 i3lock
 feh
+graphicsmagick
+graphicsmagick-imagemagick-compat
 rofi
 xfce4-terminal
 chromium
