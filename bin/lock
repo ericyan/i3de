@@ -5,7 +5,7 @@ size=$(xrandr | grep \* | awk '{print $1}' | head -n 1)
 image=/var/tmp/lockscreen-$size.png
 
 if [ ! -f $image ]; then
-  convert $source -resize $size^ $image
+  convert $source -resize $size^ -gravity center -extent $size $image
 fi
 
 i3lock -u -i $image -c 343d46
