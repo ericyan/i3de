@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+class Blocklet
+  def initialize(&block)
+    instance_eval(&block)
+    puts self
+  end
+
+  def icon(s)
+    @icon = s.chomp unless s.nil?
+  end
+
+  def text(s)
+    @text = s.chomp unless s.nil?
+  end
+
+  def color(s)
+    @color = s.chomp unless s.nil?
+  end
+
+  def to_s
+    full_text = @icon.nil? ? @text : "#{@icon} #{@text}"
+    short_text = full_text
+    color = @color.nil? ? "" : @color
+
+    return full_text + "\n" + short_text + "\n" + color
+  end
+end
+
+blocklets_dir = "~/.config/i3blocks/blocklets"
+blocklet_name = ARGV[0]
+blocklet_path = "#{blocklets_dir}/#{blocklet_name}.rb"
+if File.exist?(File.expand_path(blocklet_path))
+  require blocklet_path
+else
+  abort "Blocklet #{blocklet_name} not found"
+end
