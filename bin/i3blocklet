@@ -2,6 +2,7 @@
 
 class Blocklet
   def initialize(&block)
+    @color = color(:default)
     @event_handlers = {}
 
     instance_eval(&block)
@@ -26,7 +27,18 @@ class Blocklet
   end
 
   def color(s)
-    @color = s.chomp unless s.nil?
+    @color = case s.to_s.chomp
+             when "red"
+               "#bf616a"
+             when "yellow"
+               "#ebcb8b"
+             when "green"
+               "#a3be8c"
+             when /^#\w{6}$/
+               @color = s.to_s.chomp
+             else
+               @color = "#a7adba"
+             end
   end
 
   def on(event, &block)
@@ -36,9 +48,8 @@ class Blocklet
   def to_s
     full_text = @icon.nil? ? @text : "#{@icon} #{@text}"
     short_text = full_text
-    color = @color.nil? ? "" : @color
 
-    return full_text + "\n" + short_text + "\n" + color
+    return full_text + "\n" + short_text + "\n" + @color
   end
 end
 
