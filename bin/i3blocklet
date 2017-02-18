@@ -2,7 +2,18 @@
 
 class Blocklet
   def initialize(&block)
+    @event_handlers = {}
+
     instance_eval(&block)
+
+    # Handle mouse events
+    unless ENV["BLOCK_BUTTON"].to_s.empty?
+      button = ENV['BLOCK_BUTTON'].to_i
+      x, y = ENV['BLOCK_X'].to_i, ENV['BLOCK_Y'].to_i
+
+      @event_handlers[:mouse].call(button, x, y) unless @event_handlers[:mouse].nil?
+    end
+
     puts self
   end
 
@@ -16,6 +27,10 @@ class Blocklet
 
   def color(s)
     @color = s.chomp unless s.nil?
+  end
+
+  def on(event, &block)
+    @event_handlers[event] = block
   end
 
   def to_s
