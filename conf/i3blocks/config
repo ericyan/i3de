@@ -4,6 +4,9 @@ separator_block_width=16
 
 [network]
 
+[bandwidth]
+interval=10
+
 [loadavg]
 
 [volume]
