@@ -23,7 +23,7 @@ class Blocklet
   end
 
   def text(s)
-    @text = s.chomp unless s.nil?
+    @text = s.to_s.chomp
   end
 
   def color(s)
