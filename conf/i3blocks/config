@@ -1,20 +1,15 @@
-command=/usr/share/i3blocks/$BLOCK_NAME
+command=$HOME/.local/bin/i3blocklet $BLOCK_NAME
 interval=30
 separator_block_width=16
 
-[wifi]
-label=
+[network]
 
-[load_average]
-label=
+[loadavg]
 
 [volume]
-label= 
 signal=10
 interval=once
 
 [battery]
-label=
 
 [time]
-command=date "+%a %I:%M%P"
