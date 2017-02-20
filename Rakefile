@@ -1,6 +1,7 @@
 task :default => :install
 
 task :install => :dependencies do
+  Rake::Task[:stow].execute target: "~", source: "runcom"
   Rake::Task[:stow].execute target: "~/.config", source: "conf"
   Rake::Task[:stow].execute target: "~/.local/share/images", source: "images"
   Rake::Task[:stow].execute target: "~/.local/bin", source: "bin"
