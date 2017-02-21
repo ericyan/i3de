@@ -113,6 +113,9 @@ bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3bloc
 bindsym $mod+shift+F12 exec ~/.local/bin/lock
 bindsym XF86Sleep exec ~/.local/bin/lock
 
+# Force certain windows to float
+for_window [class="Catfish"] floating enable
+
 # See http://i3wm.org/docs/userguide.html#_changing_colors for details
 client.focused          $base02 $base02 $base05 $base01 $base02
 client.focused_inactive $base01 $base01 $base03 $base00 $base01
