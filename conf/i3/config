@@ -96,8 +96,22 @@ bindsym $mod+Return exec i3-sensible-terminal
 # App launcher powered by Rofi
 bindsym $alt+space exec rofi -modi drun -show drun -display-drun "Run"
 
+# Web browser and mail client
+bindsym XF86HomePage exec chromium
+bindsym XF86Mail exec chromium --app=https://inbox.google.com/
+
+# File finder
+bindsym XF86Search exec catfish
+bindsym $mod+$alt+space exec catfish
+
+# Volume control
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3blocks
+
 # Lock screen
 bindsym $mod+shift+F12 exec ~/.local/bin/lock
+bindsym XF86Sleep exec ~/.local/bin/lock
 
 # See http://i3wm.org/docs/userguide.html#_changing_colors for details
 client.focused          $base02 $base02 $base05 $base01 $base02
