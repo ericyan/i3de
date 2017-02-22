@@ -12,6 +12,9 @@ chromium
 thunar
 xfce4-notifyd
 libnotify-bin
+catfish
+alsa-utils
+upower
 
 # Fonts
 fonts-hack-ttf
