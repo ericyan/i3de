@@ -15,6 +15,7 @@ libnotify-bin
 catfish
 alsa-utils
 upower
+wireless-tools
 
 # Fonts
 fonts-hack-ttf

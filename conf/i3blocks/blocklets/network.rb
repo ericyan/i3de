@@ -10,10 +10,11 @@ Blocklet.new do
     is_down = `cat /sys/class/net/#{interface}/operstate`.strip == "down"
 
     if is_wireless
+      ssid = `/sbin/iwgetid --raw`.strip
       quality = `grep #{interface} /proc/net/wireless | awk '{ print $3 * 100 / 70 }'`.to_i
 
       icon ""
-      text "#{quality}%"
+      text "#{ssid} (#{quality}%)"
       case quality
       when 60.0...80.0
         color :yellow
