@@ -1,5 +1,6 @@
 Blocklet.new do
-  interface = `ip route | awk -v FS='(dev |  )' '/^default/ { print $2; exit }'`.strip
+  interface = (/dev (\S+)/ =~ `ip route | grep default | head -n 1`).nil? ? "" : $~[1]
+
   if interface.empty?
     icon ""
     text "No network"
