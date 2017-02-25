@@ -115,6 +115,7 @@ bindsym XF86Sleep exec ~/.local/bin/lock
 
 # Force certain windows to float
 for_window [class="Catfish"] floating enable
+for_window [class="Yad"] floating enable
 
 # See http://i3wm.org/docs/userguide.html#_changing_colors for details
 client.focused          $base02 $base02 $base05 $base01 $base02

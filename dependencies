@@ -16,6 +16,7 @@ catfish
 alsa-utils
 upower
 wireless-tools
+yad
 
 # Fonts
 fonts-hack-ttf
