@@ -1,0 +1,19 @@
+#!/bin/sh
+
+yad --width 440 --borders 12 --timeout=5 --title '' \
+    --image='application-exit-symbolic' \
+    --text '<b>Are you sure you want to suspend?</b>\n\nIf you do not choose an option below, it will suspend in 5 seconds. Press <tt>Esc</tt> to cancel.\n' \
+    --button='Hibernate!weather-clear-night:3' \
+    --button='Power off!system-shutdown-panel:4' \
+    --button='Reboot!system-shutdown-panel-restart:5' \
+    --buttons-layout='edge'
+
+case $? in
+   3*) cmd="hibernate" ;;
+   4*) cmd="poweroff" ;;
+   5*) cmd="reboot" ;;
+  70*) cmd="suspend" ;;
+  *) exit 0 ;;
+esac
+
+~/.local/bin/lock && systemctl $cmd

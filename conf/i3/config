@@ -109,9 +109,10 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute && pkill -SIGRTMI
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3blocks
 
-# Lock screen
+# Lock, sleep and log out shortcuts
 bindsym $mod+shift+F12 exec ~/.local/bin/lock
-bindsym XF86Sleep exec ~/.local/bin/lock
+bindsym XF86Sleep exec ~/.local/bin/sleep
+bindsym $mod+$alt+shift+q exec i3-msg exit
 
 # Force certain windows to float
 for_window [class="Catfish"] floating enable
