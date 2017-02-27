@@ -3,3 +3,6 @@
 feh --bg-fill ~/.local/share/images/wallpaper.png --no-fehbg
 
 compton &
+
+# For auto mount and bossting Thunar startup time
+thunar --daemon &
