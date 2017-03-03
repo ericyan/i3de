@@ -26,6 +26,10 @@ thunar-archive-plugin
 xarchiver
 unar
 
+# Image and document viewer
+ristretto
+evince
+
 # Fonts
 fonts-hack-ttf
 fonts-lato
