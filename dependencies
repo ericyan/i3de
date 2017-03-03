@@ -9,7 +9,6 @@ graphicsmagick-imagemagick-compat
 rofi
 xfce4-terminal
 chromium
-thunar
 xfce4-notifyd
 libnotify-bin
 catfish
@@ -19,6 +18,13 @@ connman
 wpasupplicant
 wireless-tools
 yad
+
+# File and archive manager
+thunar
+thunar-volman
+thunar-archive-plugin
+xarchiver
+unar
 
 # Fonts
 fonts-hack-ttf
