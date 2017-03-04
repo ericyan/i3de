@@ -2,10 +2,6 @@ xorg
 compton
 i3-wm
 i3blocks
-i3lock
-feh
-graphicsmagick
-graphicsmagick-imagemagick-compat
 rofi
 xfce4-terminal
 chromium
@@ -18,6 +14,12 @@ connman
 wpasupplicant
 wireless-tools
 yad
+
+# Lockscreen and wallpaper
+hsetroot
+i3lock
+graphicsmagick
+graphicsmagick-imagemagick-compat
 
 # File and archive manager
 thunar

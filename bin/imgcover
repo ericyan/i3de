@@ -1,0 +1,30 @@
+#!/bin/sh
+
+source=$1
+tmpdir=$2
+key=$3
+
+mkdir -p $tmpdir
+
+images=""
+while read geometry; do
+  # Resize source image to screen resolution
+  size=$(echo $geometry | cut -d '+' -f 1)
+  image=$tmpdir/$key-$size.png
+  if [ ! -f $image ]; then
+    convert $source -resize $size^ -gravity center -extent $size $image
+  fi
+
+  key="$key-$geometry"
+  images="$images $image"
+done << EOT
+  $(xrandr --query | grep -P '(\d+x\d+)\+(\d+)\+(\d+)' -o \
+    | awk -F '+' '{print $2, $0}' | sort | cut -s -d ' ' -f 2)
+EOT
+
+cover=$tmpdir/$key.png
+if [ ! -f $cover ]; then
+  convert $images +append $cover
+fi
+
+echo $cover

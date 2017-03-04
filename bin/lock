@@ -3,28 +3,5 @@
 source=~/.local/share/images/lockscreen.png
 tmpdir=/var/tmp/i3lock
 key="lockscreen"
-images=""
 
-mkdir -p $tmpdir
-
-while read geometry; do
-  # Resize lockscreen image to screen resolution
-  size=$(echo $geometry | cut -d '+' -f 1)
-  image=$tmpdir/lockscreen-$size.png
-  if [ ! -f $image ]; then
-    convert $source -resize $size^ -gravity center -extent $size $image
-  fi
-
-  key="$key-$geometry"
-  images="$images $image"
-done << EOT
-  $(xrandr --query | grep -P '(\d+x\d+)\+(\d+)\+(\d+)' -o \
-    | awk -F '+' '{print $2, $0}' | sort | cut -s -d ' ' -f 2)
-EOT
-
-lockscreen=$tmpdir/$key.png
-if [ ! -f $lockscreen ]; then
-  convert $images +append $lockscreen
-fi
-
-i3lock -u -i $lockscreen -c 343d46
+i3lock -u -i $($HOME/.local/bin/imgcover $source $tmpdir $key) -c 343d46

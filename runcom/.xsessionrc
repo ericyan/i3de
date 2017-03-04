@@ -1,6 +1,6 @@
 #!/bin/sh
 
-feh --bg-fill ~/.local/share/images/wallpaper.png --no-fehbg
+$HOME/.local/bin/wallpaper
 
 compton &
 

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+source=~/.local/share/images/wallpaper.png
+tmpdir=/var/tmp/wallpaper
+key="wallpaper"
+
+hsetroot -cover $($HOME/.local/bin/imgcover $source $tmpdir $key)
