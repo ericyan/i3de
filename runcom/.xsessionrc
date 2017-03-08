@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# No annoying beeps
+xset b off
+
 $HOME/.local/bin/wallpaper
 
 compton &
