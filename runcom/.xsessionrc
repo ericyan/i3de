@@ -7,5 +7,8 @@ $HOME/.local/bin/wallpaper
 
 compton &
 
+# Polkit GUI agent
+mate-polkit &
+
 # For auto mount and bossting Thunar startup time
 thunar --daemon &
