@@ -36,6 +36,10 @@ unar
 ristretto
 evince
 
+# Video and music player
+gnome-mpv
+audacious
+
 # Fonts
 fonts-hack-ttf
 fonts-lato
