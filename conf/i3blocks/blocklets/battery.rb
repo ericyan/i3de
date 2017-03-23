@@ -47,6 +47,7 @@ Blocklet.new do
       color :normal
     when "discharging"
       text battery["time_to_empty"]
+      text battery["percentage"] unless battery["time_to_empty"].empty?
     end
   end
 end
