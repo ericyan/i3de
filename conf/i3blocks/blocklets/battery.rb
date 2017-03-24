@@ -43,7 +43,7 @@ Blocklet.new do
       color :normal
     when "charging"
       icon "" if !ac_adapter.nil? and ac_adapter["online"] == "yes"
-      text battery["time_to_full"]
+      text battery["percentage"]
       color :normal
     when "discharging"
       text battery["time_to_empty"]
