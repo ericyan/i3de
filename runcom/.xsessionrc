@@ -3,6 +3,9 @@
 # No annoying beeps
 xset b off
 
+# Use Caps Lock as Ctrl
+setxkbmap -layout us -option ctrl:nocaps
+
 $HOME/.local/bin/wallpaper
 
 compton &
