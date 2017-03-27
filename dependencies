@@ -1,24 +1,12 @@
+# Desktop
 xorg
 compton
 i3-wm
 i3blocks
 rofi
-xfce4-terminal
-chromium
 xfce4-notifyd
 libnotify-bin
-catfish
-alsa-utils
-upower
-connman
-connman-vpn
-wpasupplicant
-wireless-tools
 yad
-
-# Polkit agent
-mate-polkit
-mate-polkit-bin
 
 # Lockscreen and wallpaper
 hsetroot
@@ -26,12 +14,29 @@ i3lock
 graphicsmagick
 graphicsmagick-imagemagick-compat
 
+# Network manager
+connman
+connman-vpn
+wpasupplicant
+wireless-tools
+
+# System utilities
+alsa-utils
+upower
+mate-polkit
+mate-polkit-bin
+
+# Core apps
+xfce4-terminal
+chromium
+
 # File and archive manager
 thunar
 thunar-volman
 thunar-archive-plugin
 xarchiver
 unar
+catfish
 
 # Image and document viewer
 ristretto
