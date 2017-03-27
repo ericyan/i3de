@@ -11,6 +11,7 @@ catfish
 alsa-utils
 upower
 connman
+connman-vpn
 wpasupplicant
 wireless-tools
 yad
