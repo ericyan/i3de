@@ -17,6 +17,7 @@ graphicsmagick-imagemagick-compat
 # Network manager
 connman
 connman-vpn
+cmst
 wpasupplicant
 wireless-tools
 
