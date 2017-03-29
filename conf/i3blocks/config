@@ -4,6 +4,9 @@ separator_block_width=16
 
 [network]
 
+[ip]
+interval=once
+
 [bandwidth]
 interval=10
 
