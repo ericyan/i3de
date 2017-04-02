@@ -26,6 +26,9 @@ Blocklet.new do
     else
       icon ""
       text interface
+
+      speed = `cat /sys/class/net/#{interface}/speed`.to_i
+      text "#{interface} (#{speed} Mbps)" if speed > 0
     end
 
     if `cat /sys/class/net/#{interface}/operstate`.strip == "down"
