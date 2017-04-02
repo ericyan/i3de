@@ -24,7 +24,7 @@ Blocklet.new do
       text "No network"
       color :red
     else
-      icon ""
+      icon ""
       text interface
     end
 
