@@ -26,6 +26,7 @@ alsa-utils
 upower
 mate-polkit
 mate-polkit-bin
+ssh-askpass-gnome
 
 # Core apps
 xfce4-terminal
