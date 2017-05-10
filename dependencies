@@ -30,7 +30,7 @@ ssh-askpass-gnome
 
 # Core apps
 xfce4-terminal
-chromium
+chromium-browser
 
 # File and archive manager
 thunar
