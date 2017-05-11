@@ -39,6 +39,8 @@ thunar-archive-plugin
 xarchiver
 unar
 catfish
+exfat-fuse
+exfat-utils
 
 # Image and document viewer
 ristretto
