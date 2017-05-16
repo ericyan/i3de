@@ -1,0 +1,15 @@
+#!/bin/sh
+
+id=$(aplay -l | grep card | sed 's/card //' | rofi -dmenu -i -p "Soundcard: " | cut -d ':' -f 1)
+
+cat > ~/.asoundrc <<EOF
+pcm.!default {
+    type hw
+    card $id
+}
+
+ctl.!default {
+    type hw
+    card $id
+}
+EOF
