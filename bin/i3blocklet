@@ -18,6 +18,14 @@ class Blocklet
     puts self
   end
 
+  def name
+    return ENV["BLOCK_NAME"]
+  end
+
+  def instance
+    return ENV["BLOCK_INSTANCE"]
+  end
+
   def icon(s)
     @icon = s.chomp unless s.nil?
   end

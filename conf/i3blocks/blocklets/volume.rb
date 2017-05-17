@@ -1,5 +1,5 @@
 Blocklet.new do
-  control = "Master"
+  control = instance || "Master"
 
   def parse(data)
     matched = data.match(/\[(\S+)\] \[(\S+)\]/)
