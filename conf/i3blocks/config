@@ -17,6 +17,11 @@ instance=Speaker
 signal=10
 interval=once
 
+[volume]
+instance=Mic
+signal=11
+interval=once
+
 [battery]
 
 [time]

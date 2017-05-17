@@ -1,18 +1,27 @@
 Blocklet.new do
   control = instance || "Master"
+  type = control == "Mic" ? :input : :output
 
   def parse(data)
     matched = data.match(/\[(\S+)\] \[(\S+)\]/)
     return matched[1].sub(/%/, "").to_i, matched[2] == "off"
   end
 
-  def update(volume, is_muted)
+  def update(type, volume, is_muted)
     if is_muted
-      icon ""
+      if type == :output
+        icon ""
+      else
+        icon ""
+      end
       text "Muted"
       color :yellow
     else
-      icon ""
+      if type == :output
+        icon ""
+      else
+        icon ""
+      end
       text "#{volume}%"
       color :normal
     end
@@ -26,9 +35,9 @@ Blocklet.new do
              end
 
     volume, is_muted = parse(result)
-    update(volume, is_muted)
+    update(type, volume, is_muted)
   end
 
   volume, is_muted = parse(`amixer get #{control}`)
-  update(volume, is_muted)
+  update(type, volume, is_muted)
 end
