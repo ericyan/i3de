@@ -3,8 +3,20 @@ Blocklet.new do
   type = control == "Mic" ? :input : :output
 
   def parse(data)
-    matched = data.match(/\[(\S+)\] \[(\S+)\]/)
-    return matched[1].sub(/%/, "").to_i, matched[2] == "off"
+    volume, is_muted = nil, nil
+    data.scan(/\[(\S+)\]/).flatten.each do |s|
+      break unless  volume.nil? or is_muted.nil?
+
+      if s.end_with? "%"
+        volume = s.sub(/%/, "").to_i
+        next
+      end
+
+      is_muted = false if s == "on"
+      is_muted = true if s == "off"
+    end
+
+    return volume, is_muted
   end
 
   def update(type, volume, is_muted)
