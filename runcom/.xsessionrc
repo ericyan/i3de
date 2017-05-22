@@ -15,3 +15,6 @@ mate-polkit &
 
 # For auto mount and bossting Thunar startup time
 thunar --daemon &
+
+# Load ~/.xsessionrc.local (if exists)
+[ -f ~/.xsessionrc.local ] && . ~/.xsessionrc.local
