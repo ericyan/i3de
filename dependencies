@@ -45,6 +45,7 @@ exfat-utils
 # Image and document viewer
 ristretto
 evince
+simple-scan
 
 # Video and music player
 gnome-mpv
