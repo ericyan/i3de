@@ -12,7 +12,7 @@ while read geometry; do
   size=$(echo $geometry | cut -d '+' -f 1)
   image=$tmpdir/$key-$size.png
   if [ ! -f $image ]; then
-    convert $source -resize $size^ -gravity center -extent $size $image
+    gm convert $source -resize $size^ -gravity center -extent $size $image
   fi
 
   key="$key-$geometry"
@@ -24,7 +24,7 @@ EOT
 
 cover=$tmpdir/$key.png
 if [ ! -f $cover ]; then
-  convert $images +append $cover
+  gm convert $images +append $cover
 fi
 
 echo $cover
