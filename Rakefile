@@ -5,6 +5,7 @@ task :install => :dependencies do
   Rake::Task[:stow].execute target: "~/.config", source: "conf"
   Rake::Task[:stow].execute target: "~/.local/share/images", source: "images"
   Rake::Task[:stow].execute target: "~/.local/bin", source: "bin"
+  FileUtils.mkdir_p File.expand_path("~/Pictures/Screenshots")
 end
 
 task :dependencies do

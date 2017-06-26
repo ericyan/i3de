@@ -26,6 +26,8 @@ upower
 mate-polkit
 mate-polkit-bin
 ssh-askpass-gnome
+maim
+slop
 
 # Core apps
 xfce4-terminal

@@ -109,6 +109,11 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute && pkill -SIGRTMI
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3blocks
 
+# Screenshot
+bindsym Print exec "maim --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
+bindsym $alt+shift+3 exec "maim --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
+bindsym $alt+shift+4 exec "maim -s -l -c 0.561,0.631,0.702,0.3 --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
+
 # Lock, sleep and log out shortcuts
 bindsym $mod+shift+F12 exec ~/.local/bin/lock
 bindsym XF86Sleep exec ~/.local/bin/sleep
