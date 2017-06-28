@@ -2,6 +2,18 @@ Blocklet.new do
   control = instance || "Master"
   type = control == "Mic" ? :input : :output
 
+  def get_card_id
+    begin
+      File.open(File.expand_path("~/.asoundrc"), "r").each_line do |line|
+        return $~[1].to_i unless (/card\s+(\d)/ =~ line) == nil
+      end
+    rescue
+      # Do nothing
+    end
+
+    return 0
+  end
+
   def parse(data)
     volume, is_muted = nil, nil
     data.scan(/\[(\S+)\]/).flatten.each do |s|
@@ -41,15 +53,15 @@ Blocklet.new do
 
   on :mouse do |button|
     result = case button
-             when 1 then `amixer set #{control} toggle`
-             when 4 then `amixer set #{control} 5%+ unmute`
-             when 5 then `amixer set #{control} 5%- unmute`
+             when 1 then `amixer set #{control} -c #{get_card_id} toggle`
+             when 4 then `amixer set #{control} -c #{get_card_id} 5%+ unmute`
+             when 5 then `amixer set #{control} -c #{get_card_id} 5%- unmute`
              end
 
     volume, is_muted = parse(result)
     update(type, volume, is_muted)
   end
 
-  volume, is_muted = parse(`amixer get #{control}`)
+  volume, is_muted = parse(`amixer get #{control} -c #{get_card_id}`)
   update(type, volume, is_muted)
 end
