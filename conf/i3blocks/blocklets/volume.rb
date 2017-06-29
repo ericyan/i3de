@@ -52,6 +52,10 @@ Blocklet.new do
   end
 
   on :mouse do |button|
+    if button == 3
+      `$HOME/.local/bin/soundcard`
+    end
+
     result = case button
              when 1 then `amixer set #{control} -c #{get_card_id} toggle`
              when 4 then `amixer set #{control} -c #{get_card_id} 5%+ unmute`
