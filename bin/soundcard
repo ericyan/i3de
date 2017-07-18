@@ -1,8 +1,9 @@
 #!/bin/sh
 
-id=$(aplay -l | grep card | sed 's/card //' | rofi -dmenu -i -p "Soundcard: " | cut -d ':' -f 1)
-test -z $id && exit
+selection=$(aplay -l | grep card | sed 's/card //' | rofi -dmenu -i -p "Soundcard: ")
+test -z "$selection" && exit
 
+id=$(echo $selection | cut -d ':' -f 1)
 cat > ~/.asoundrc <<EOF
 pcm.!default {
     type hw
@@ -14,3 +15,9 @@ ctl.!default {
     card $id
 }
 EOF
+
+name=$(echo $selection | cut -d ' ' -f 2)
+cat > ~/.profile.d/alsa.local << EOF
+export ALSA_CARD="$name"
+EOF
+chmod +x ~/.profile.d/alsa.local
