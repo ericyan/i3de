@@ -28,6 +28,7 @@ mate-polkit-bin
 ssh-askpass-gnome
 maim
 slop
+traceroute
 
 # Core apps
 xfce4-terminal
