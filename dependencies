@@ -55,4 +55,6 @@ audacious
 # Fonts
 fonts-hack-ttf
 fonts-lato
+fonts-noto-hinted
+fonts-noto-cjk
 fonts-font-awesome
