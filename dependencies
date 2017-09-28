@@ -29,6 +29,7 @@ ssh-askpass-gnome
 maim
 slop
 traceroute
+htop
 
 # Core apps
 xfce4-terminal
