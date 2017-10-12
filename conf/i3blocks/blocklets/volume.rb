@@ -53,7 +53,7 @@ Blocklet.new do
 
   on :mouse do |button|
     if button == 3
-      `$HOME/.local/bin/soundcard`
+      `pavucontrol -t #{type == :output ? 1 : 2}`
     end
 
     result = case button
