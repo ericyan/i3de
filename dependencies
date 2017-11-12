@@ -30,6 +30,7 @@ maim
 slop
 traceroute
 htop
+whois
 
 # Core apps
 xfce4-terminal
