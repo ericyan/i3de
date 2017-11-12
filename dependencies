@@ -21,7 +21,8 @@ wpasupplicant
 wireless-tools
 
 # System utilities
-alsa-utils
+pulseaudio
+pavucontrol
 upower
 mate-polkit
 mate-polkit-bin

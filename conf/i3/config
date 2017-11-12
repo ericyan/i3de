@@ -105,9 +105,9 @@ bindsym XF86Search exec catfish
 bindsym $mod+$alt+space exec catfish
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec BLOCK_BUTTON=4 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec BLOCK_BUTTON=5 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec BLOCK_BUTTON=1 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
 
 # Screenshot
 bindsym Print exec "maim --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
@@ -122,6 +122,7 @@ bindsym $mod+$alt+shift+q exec i3-msg exit
 # Force certain windows to float
 for_window [class="Catfish"] floating enable
 for_window [class="Yad"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # See http://i3wm.org/docs/userguide.html#_changing_colors for details
 client.focused          $base02 $base02 $base05 $base01 $base02
