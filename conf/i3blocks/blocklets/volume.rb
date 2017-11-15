@@ -1,6 +1,10 @@
 Blocklet.new do
-  control = instance || "Master"
-  type = control == "Mic" ? :input : :output
+  @control = instance || "Master"
+
+  def is_output?
+    type = @control == "Mic" ? :input : :output
+    return type == :output
+  end
 
   def get_card_id
     begin
@@ -31,21 +35,13 @@ Blocklet.new do
     return volume, is_muted
   end
 
-  def update(type, volume, is_muted)
+  def update(volume, is_muted)
     if is_muted
-      if type == :output
-        icon ""
-      else
-        icon ""
-      end
+      icon is_output? ? "" : ""
       text "Muted"
       color :yellow
     else
-      if type == :output
-        icon ""
-      else
-        icon ""
-      end
+      icon is_output? ? "" : ""
       text "#{volume}%"
       color :normal
     end
@@ -53,19 +49,19 @@ Blocklet.new do
 
   on :mouse do |button|
     if button == 3
-      `pavucontrol -t #{type == :output ? 1 : 2}`
+      `pavucontrol -t #{is_output? ? 1 : 2}`
     end
 
     result = case button
-             when 1 then `amixer set #{control} -c #{get_card_id} toggle`
-             when 4 then `amixer set #{control} -c #{get_card_id} 5%+ unmute`
-             when 5 then `amixer set #{control} -c #{get_card_id} 5%- unmute`
+             when 1 then `amixer set #{@control} -c #{get_card_id} toggle`
+             when 4 then `amixer set #{@control} -c #{get_card_id} 5%+ unmute`
+             when 5 then `amixer set #{@control} -c #{get_card_id} 5%- unmute`
              end
 
     volume, is_muted = parse(result)
-    update(type, volume, is_muted)
+    update(volume, is_muted)
   end
 
-  volume, is_muted = parse(`amixer get #{control} -c #{get_card_id}`)
-  update(type, volume, is_muted)
+  volume, is_muted = parse(`amixer get #{@control} -c #{get_card_id}`)
+  update(volume, is_muted)
 end
