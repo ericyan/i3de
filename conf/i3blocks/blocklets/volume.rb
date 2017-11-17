@@ -1,41 +1,45 @@
 Blocklet.new do
-  @control = instance || "Master"
+  @type = instance || "sink"
+  @id = nil
 
   def is_output?
-    type = @control == "Mic" ? :input : :output
-    return type == :output
+    return @type.downcase.to_sym == :sink
   end
 
-  def get_card_id
-    begin
-      File.open(File.expand_path("~/.asoundrc"), "r").each_line do |line|
-        return $~[1].to_i unless (/card\s+(\d)/ =~ line) == nil
+  def type
+    return is_output? ? :sink : :source
+  end
+
+  def id
+    update! if @id.nil?
+    return @id
+  end
+
+  def update!
+    results = `pacmd list-#{type}s`.split("\n")
+
+    id, volume, is_muted = nil
+    results.each do |line|
+      if id.nil?
+        if line.start_with? "  * index: "
+          id = line.delete_prefix("  * index: ").to_i
+        end
+      else
+        if volume.nil? and line.start_with? "\tvolume: "
+          data = line.delete_prefix("\tvolume: ").split(",").shift.split(":")[1]
+          volume = data.split("/")[1].sub(/%/, "").to_i
+        end
+
+        if is_muted.nil? and line.start_with? "\tmuted: "
+          is_muted = line.delete_prefix("\tmuted: ").strip == "yes"
+        end
+
+        break if !volume.nil? and !is_muted.nil?
       end
-    rescue
-      # Do nothing
     end
 
-    return 0
-  end
+    @id = id
 
-  def parse(data)
-    volume, is_muted = nil, nil
-    data.scan(/\[(\S+)\]/).flatten.each do |s|
-      break unless  volume.nil? or is_muted.nil?
-
-      if s.end_with? "%"
-        volume = s.sub(/%/, "").to_i
-        next
-      end
-
-      is_muted = false if s == "on"
-      is_muted = true if s == "off"
-    end
-
-    return volume, is_muted
-  end
-
-  def update(volume, is_muted)
     if is_muted
       icon is_output? ? "" : ""
       text "Muted"
@@ -48,20 +52,15 @@ Blocklet.new do
   end
 
   on :mouse do |button|
-    if button == 3
-      `pavucontrol -t #{is_output? ? 1 : 2}`
+    case button
+    when 1 then `pactl set-#{type}-mute #{id} toggle`
+    when 3 then `pavucontrol -t #{is_output? ? 1 : 2}`
+    when 4 then `pactl set-#{type}-mute #{id} false && pactl set-#{type}-volume #{id} +5%`
+    when 5 then `pactl set-#{type}-mute #{id} false && pactl set-#{type}-volume #{id} -5%`
     end
 
-    result = case button
-             when 1 then `amixer set #{@control} -c #{get_card_id} toggle`
-             when 4 then `amixer set #{@control} -c #{get_card_id} 5%+ unmute`
-             when 5 then `amixer set #{@control} -c #{get_card_id} 5%- unmute`
-             end
-
-    volume, is_muted = parse(result)
-    update(volume, is_muted)
+    update!
   end
 
-  volume, is_muted = parse(`amixer get #{@control} -c #{get_card_id}`)
-  update(volume, is_muted)
+  update!
 end

@@ -13,12 +13,12 @@ interval=10
 [loadavg]
 
 [volume]
-instance=Speaker
+instance=sink
 signal=10
 interval=once
 
 [volume]
-instance=Mic
+instance=source
 signal=11
 interval=once
 
