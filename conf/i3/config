@@ -105,9 +105,9 @@ bindsym XF86Search exec catfish
 bindsym $mod+$alt+space exec catfish
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioMute exec amixer set Master toggle && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec BLOCK_BUTTON=4 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec BLOCK_BUTTON=5 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec BLOCK_BUTTON=1 ~/.local/bin/i3blocklet volume && pkill -SIGRTMIN+10 i3blocks
 
 # Screenshot
 bindsym Print exec "maim --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
