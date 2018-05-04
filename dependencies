@@ -1,11 +1,8 @@
 # Desktop
-xorg
 compton
 i3-wm
 i3blocks
 rofi
-xfce4-notifyd
-libnotify-bin
 yad
 
 # Lockscreen and wallpaper
@@ -21,9 +18,6 @@ wpasupplicant
 wireless-tools
 
 # System utilities
-pulseaudio
-pavucontrol
-upower
 mate-polkit
 mate-polkit-bin
 ssh-askpass-gnome
@@ -38,14 +32,10 @@ xfce4-terminal
 chromium-browser
 
 # File and archive manager
-thunar
-thunar-volman
 thunar-archive-plugin
 xarchiver
 unar
 catfish
-exfat-fuse
-exfat-utils
 
 # Image and document viewer
 ristretto
