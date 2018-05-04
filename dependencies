@@ -27,22 +27,18 @@ traceroute
 htop
 whois
 
-# Core apps
-xfce4-terminal
-chromium-browser
-
 # File and archive manager
 thunar-archive-plugin
 xarchiver
 unar
-catfish
 
-# Image and document viewer
+# Apps
+xfce4-terminal
+chromium
 ristretto
 evince
 simple-scan
-
-# Video and music player
+catfish
 gnome-mpv
 audacious
 
