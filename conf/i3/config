@@ -98,7 +98,7 @@ bindsym $alt+space exec rofi -modi drun -show drun -display-drun "Run"
 
 # Web browser and mail client
 bindsym XF86HomePage exec sensible-browser
-bindsym XF86Mail exec sensible-browser --app=https://inbox.google.com/
+bindsym XF86Mail exec thunderbird
 
 # File finder
 bindsym XF86Search exec catfish
