@@ -115,7 +115,7 @@ bindsym $alt+shift+3 exec "maim --hidecursor ~/Pictures/Screenshots/$(date +%s).
 bindsym $alt+shift+4 exec "maim -s -l -c 0.561,0.631,0.702,0.3 --hidecursor ~/Pictures/Screenshots/$(date +%s).png"
 
 # Lock, sleep and log out shortcuts
-bindsym $mod+shift+F12 exec ~/.local/bin/lock
+bindsym $mod+shift+F12 exec light-locker-command --lock
 bindsym XF86Sleep exec ~/.local/bin/sleep
 bindsym $mod+$alt+shift+q exec i3-msg exit
 
